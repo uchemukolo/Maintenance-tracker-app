@@ -10,13 +10,13 @@ body {
 
 /* Header/logo Title */
 .header1 {
-    padding: 60px;
-    text-align: center;
-    height: 650px;
     background-size: cover;
     background-image: url("../image/bgimg.jpeg");
     background-repeat: no-repeat;
-    color: yellow;
+    color: #ffff00;
+    height: 650px;
+    padding: 60px;
+    text-align: center;
 }
 .welcome {
     font-size: 100px;
@@ -29,39 +29,40 @@ body {
 
 }
 .button {
-    text-decoration: none;
-    color: black;
-    font-size: 30px;
-    padding: 10px 25px 10px 25px;
-    border: 2px solid yellow;
+    border: 2px solid #ffff00;
     border-radius: 5px;
-    background-color: yellow;
+    background-color: #ffff00;
+    color: #000000;
+    font-size: 30px;
     margin-right: 20px;
+    padding: 10px 25px 10px 25px;
+    text-decoration: none;
 }
 .button1 {
-    text-decoration: none;
-    color: black;
+    border: 2px solid #ffff00;
+    border-radius: 5px;
+    background-color: #ffff00;
+    color: #000000;
     font-size: 30px;
     padding: 10px 25px 10px 25px;
-    border: 2px solid yellow;
-    border-radius: 5px;
-    background-color: yellow;
+    text-decoration: none;
 }
 .header {
-    padding: 60px;
-    text-align: left;
     background: #333;
-    color: yellow;
+    color: #ffff00;
+    text-align: left;
+    padding: 60px;
+
 }
 
 .navbar {
+    background-color: #ffff00;
     display: flex;
-    background-color: yellow;
     font-weight: bold;
 }
 
 .navbar a {
-    color: black;
+    color: #000000;
     padding: 14px 20px;
     text-decoration: none;
     text-align: center;
@@ -69,8 +70,8 @@ body {
 }
 
 .navbar a:hover {
-    background-color: #ddd;
-    color: black;
+    background-color: #dddddd;
+    color: #000000;
 }
 
 
@@ -80,93 +81,96 @@ body {
 }
 
 .main {
+    background-color: #ffffff;
     flex:100%;
-    background-color: white;
     padding: 20px;
 }
 
 .footer {
+    background: #000000;
+    color: #ffffff;
     padding: 20px;
     text-align: center;
-    background: black;
-    color: white;
+
 }
 .menu {
     float:left;
-    width:30%;
     text-align:center;
+    width:30%;
   }
   .menu a {
-    padding:8px;
-    margin-top:7px;
+    color:#000000;
     display:block;
+    margin-top:7px;
+    padding:8px;
     width:100%;
-    color:black;
+
   }
   .main1 {
     float:left;
-    width:30%;
     padding:0 20px;
+    width:30%;
   }
   .right {
     float:left;
-    width:40%;
-    padding:15px;
     margin-top:7px;
+    padding:15px;
     text-align:center;
+    width:40%;
   }
   img{
       border-radius: 50%;
       margin-left: 70px;
   }
   .user_div {
-      text-align: center;
       font-weight: bold;
+      text-align: center;
+
 
   }
   .user_info {
-    text-align: center;
     font-weight: bold;
+    text-align: center;
   }
   .request_id {
-      text-decoration: none;
       font-weight: bold;
+      text-decoration: none;
       text-align: center;
   }
   .request_id:hover {
-      color: red;
+      color: #ff0000;
   }
   .input_field1 {
     float: left;
-    width: 75%;
     margin-top: 6px;
     margin: auto;
+    width: 75%;
   }
   input[type=submit] {
-    background-color: yellow;
-    color: black;
-    padding: 12px 20px;
+    background-color: #ffff00;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    color: #000000;
     float: right;
     margin:5px auto;
+    padding: 12px 20px;
   }
   input[type=text], select, textarea {
-    width: 300px;
-    padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
     resize: vertical;
     margin: 5px auto;
+    padding: 10px;
+    width: 300px;
 }
-  
+
   @media only screen and (max-width:700px) {
     /* For mobile phones: */
     .menu, .main, .right {
       width:100%;
     }
-@media screen and (max-width: 700px) {
+  @media screen and (max-width: 700px) {
     .row, .navbar {
         flex-direction: column;
     }
