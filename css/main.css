@@ -2,22 +2,155 @@
     box-sizing: border-box;
 }
 
-/* Style the body */
 body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
 }
+.button {
+    border: 2px solid #ffff00;
+    border-radius: 5px;
+    background-color: #ffff00;
+    color: #000000;
+    font-size: 30px;
+    margin-right: 20px;
+    padding: 10px 25px 10px 25px;
+    text-decoration: none;
+}
+.button1 {
+    border: 2px solid #ffff00;
+    border-radius: 5px;
+    background-color: #ffff00;
+    color: #000000;
+    font-size: 30px;
+    padding: 10px 25px 10px 25px;
+    text-decoration: none;
+}
 
-/* Header/logo Title */
-.header1 {
-    padding: 60px;
+.footer {
+    background: #000000;
+    color: #ffffff;
+    padding: 20px;
     text-align: center;
-    height: 650px;
+}
+
+.header {
+    background: #333333;
+    color: #ffff00;
+    padding: 60px;
+    text-align: left;
+}
+
+.header1 {
     background-size: cover;
     background-image: url("../image/bgimg.jpeg");
     background-repeat: no-repeat;
-    color: yellow;
+    color: #ffff00;
+    height: 650px;
+    padding: 60px;
+    text-align: center;
 }
+
+img{
+    border-radius: 50%;
+    margin-left: 70px;
+}
+
+.input_field1 {
+    float: left;
+    margin-top: 6px;
+    margin: auto;
+    width: 75%;
+  }
+  input[type=submit] {
+    background-color: #ffff00;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #000000;
+    float: right;
+    margin:5px auto;
+    padding: 12px 20px;
+  }
+
+  input[type=text], select, textarea {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+    margin: 5px auto;
+    padding: 10px;
+    width: 300px;
+}
+.main {
+    background-color: #ffffff;
+    flex:100%;
+    padding: 20px;
+}
+
+.menu {
+    float:left;
+    text-align:center;
+    width:30%;
+}
+.menu a {
+    color:#000000;
+    display:block;
+    margin-top:7px;
+    padding:8px;
+    width:100%;
+}
+
+.main1 {
+    float:left;
+    padding:0 20px;
+    width:30%;
+}
+.navbar {
+    background-color: #ffff00;
+    display: flex;
+    font-weight: bold;
+}
+
+.navbar a {
+    color: #000000;
+    padding: 14px 20px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.navbar a:hover {
+    background-color: #dddddd;
+    color: #000000;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+.right {
+    float:left;
+    margin-top:7px;
+    padding:15px;
+    text-align:center;
+    width:40%;
+}
+.request_id {
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+}
+.request_id:hover {
+    color: #ff0000;
+}
+
+.user_div {
+    font-weight: bold;
+    text-align: center;
+}
+.user_info {
+    font-weight: bold;
+    text-align: center;
+}
+
 .welcome {
     font-size: 100px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -28,145 +161,13 @@ body {
     font-size: 40px;
 
 }
-.button {
-    text-decoration: none;
-    color: black;
-    font-size: 30px;
-    padding: 10px 25px 10px 25px;
-    border: 2px solid yellow;
-    border-radius: 5px;
-    background-color: yellow;
-    margin-right: 20px;
-}
-.button1 {
-    text-decoration: none;
-    color: black;
-    font-size: 30px;
-    padding: 10px 25px 10px 25px;
-    border: 2px solid yellow;
-    border-radius: 5px;
-    background-color: yellow;
-}
-.header {
-    padding: 60px;
-    text-align: left;
-    background: #333;
-    color: yellow;
-}
 
-.navbar {
-    display: flex;
-    background-color: yellow;
-    font-weight: bold;
-}
-
-.navbar a {
-    color: black;
-    padding: 14px 20px;
-    text-decoration: none;
-    text-align: center;
-
-}
-
-.navbar a:hover {
-    background-color: #ddd;
-    color: black;
-}
-
-
-.row {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.main {
-    flex:100%;
-    background-color: white;
-    padding: 20px;
-}
-
-.footer {
-    padding: 20px;
-    text-align: center;
-    background: black;
-    color: white;
-}
-.menu {
-    float:left;
-    width:30%;
-    text-align:center;
-  }
-  .menu a {
-    padding:8px;
-    margin-top:7px;
-    display:block;
-    width:100%;
-    color:black;
-  }
-  .main1 {
-    float:left;
-    width:30%;
-    padding:0 20px;
-  }
-  .right {
-    float:left;
-    width:40%;
-    padding:15px;
-    margin-top:7px;
-    text-align:center;
-  }
-  img{
-      border-radius: 50%;
-      margin-left: 70px;
-  }
-  .user_div {
-      text-align: center;
-      font-weight: bold;
-
-  }
-  .user_info {
-    text-align: center;
-    font-weight: bold;
-  }
-  .request_id {
-      text-decoration: none;
-      font-weight: bold;
-      text-align: center;
-  }
-  .request_id:hover {
-      color: red;
-  }
-  .input_field1 {
-    float: left;
-    width: 75%;
-    margin-top: 6px;
-    margin: auto;
-  }
-  input[type=submit] {
-    background-color: yellow;
-    color: black;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    float: right;
-    margin:5px auto;
-  }
-  input[type=text], select, textarea {
-    width: 300px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    resize: vertical;
-    margin: 5px auto;
-}
-  
   @media only screen and (max-width:700px) {
     /* For mobile phones: */
     .menu, .main, .right {
       width:100%;
     }
-@media screen and (max-width: 700px) {
+  @media screen and (max-width: 700px) {
     .row, .navbar {
         flex-direction: column;
     }
