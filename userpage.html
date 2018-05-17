@@ -5,38 +5,24 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/signup.css">
 
 </head>
 <body>
 
 <div class="header">
   <h1>M-Tracker</h1>
-  <p><em>your assets in top-shape with maintenance tracking App</em></p>
+	<p><em>your assets in top-shape with maintenance tracking App</em></p>
 </div>
 
 <div class="navbar">
 	<a href="index.html">Home</a>
 	<a href="index.html">Signout</a>
-
 </div>
 
 <div style="overflow:auto">
-	<div class="main1">
-		<h2 class="user_div">Welcome</h2>
-		<img src="image/user.jpg" alt="Avatar">
-		<p class="user_info">Jane Allen<br/> janeallen@email.com<br/> </p>
-	</div>
-	<div class="menu">
-		<h2 class="user_div">My Requsts</h2>
-		<a class="request_id" href="#">Request ID: #000001</a>
-		<a class="request_id" href="#">Request ID: #000002</a>
-    <a class="request_id" href="#">Request ID: #000003</a>
-		<a class="request_id" href="#">Request ID: #000004</a>
-		<a class="request_id" href="#">Request ID: #000005</a>
-    <a class="request_id" href="#">Request ID: #000006</a>
-	</div>
-	<div class="right">
-		<h2 class="user_div">Make a Request</h2>
+	<div class="make_request">
+		<h2 class="user_divv">Make a Request</h2>
 		<form action="">
 			<div class="row">
 				<div class="input_field1">
@@ -52,38 +38,113 @@
 				<div class="input_field1">
 					<select id="category" name="category">
 						<option value="select">Select category</option>
-						<option value="Electronics">Electronics</option>
-						<option value="auto">Automobile</option>
-						<option value="Computer">Computer/Device</option>
+						<option value="Electronics">Maintenance</option>
+						<option value="auto">Repair</option>
 					</select>
 				</div>
 			</div>
 			<div class="row">
-			<div class="input_field1">
-				<select id="urgency" name="urgency">
-					<option value="urgent">Urgency Level</option>
-					<option value="low">Low</option>
-					<option value="medium">Medium</option>
-					<option value="high">High</option>
-				</select>
+				<div class="input_field1">
+					<select id="urgency" name="urgency">
+						<option value="urgent">Urgency Level</option>
+						<option value="low">Low</option>
+						<option value="medium">Medium</option>
+						<option value="high">High</option>
+					</select>
+				</div>
 			</div>
-		</div>
-		<div class="row">
-		<div class="input_field1">
-			<textarea id="subject" name="subject" placeholder="Description" style="height:100px"></textarea>
+			<div class="row">
+				<div class="input_field1">
+					<textarea id="subject" name="subject" placeholder="Description" style="height:100px"></textarea>
+				</div>
+			</div>
+			<div class="row">
+				<input type="submit" value="Send Request">
+			</div>
+		</form>
+	</div>
+	<div class="request_list">
+		<h2 class="user_divv">Requests</h2>
+		<input type="text" id="search" onkeyup="myFunction()" placeholder="Filter for.." title="Type in a word">
+		<table>
+			<tr>
+				<th>Request ID</th>
+				<th>Title</th>
+				<th>Status</th>
+				<th>Complete Status</th>
+				<th>Date</th>
+			</tr>
+			<tr>
+				<td><a href="requestdetails.html">#000001</a></td>
+				<td><a href="requestdetails.html">Laptop repair</a></td>
+				<td><a href="requestdetails.html">Pending</a></td>
+				<td><a href="requestdetails.html">Pending</a></td>
+				<td><a href="requestdetails.html">18/05/2018</a></td>
+			</tr>
+			<tr>
+				<td><a href="requestdetails.html">#000002</a></td>
+				<td><a href="requestdetails.html">Phone repair</a></td>
+				<td><a href="requestdetails.html">Approved</a></td>
+				<td><a href="requestdetails.html">Pending</a></td>
+				<td><a href="requestdetails.html">17/05/2018</a></td>
+			</tr>
+			<tr>
+				<td><a href="requestdetails.html">#000003</a></td>
+				<td><a href="requestdetails.html">Laptop repair</a></td>
+				<td><a href="requestdetails.html">Approved</a></td>
+				<td><a href="requestdetails.html">Pending</a></td>
+				<td><a href="requestdetails.html">16/05/2018</a></td>
+			</tr>
+			<tr>
+				<td><a href="requestdetails.html">#000004</a></td>
+				<td><a href="requestdetails.html">Laptop repair</a></td>
+				<td><a href="requestdetails.html">Approved</a></td>
+				<td><a href="requestdetails.html">Pending</a></td>
+				<td><a href="requestdetails.html">14/05/2018</a></td>
+			</tr>
+			<tr>
+				<td><a href="requestdetails.html">#000005</a></td>
+				<td><a href="requestdetails.html">Car repair</a></td>
+				<td><a href="requestdetails.html">Approved</a></td>
+				<td><a href="requestdetails.html">Pending</a></td>
+				<td><a href="requestdetails.html">14/05/2018</a></td>
+			</tr>
+			<tr>
+				<td><a href="requestdetails.html">#000006</a></td>
+				<td><a href="requestdetails.html">Vehicle Maintenance</a></td>
+				<td><a href="requestdetails.html">Approved</a></td>
+				<td><a href="requestdetails.html">Resolved</a></td>
+				<td><a href="requestdetails.html">31/03/2018</a></td>
+			</tr>
+			<tr>
+				<td><a href="requestdetails.html">#000007</a></td>
+				<td><a href="requestdetails.html">Laptop repair</a></td>
+				<td><a href="requestdetails.html">Approved</a></td>
+				<td><a href="requestdetails.html">Resolved</a></td>
+				<td><a href="requestdetails.html">22/03/2018</a></td>
+			</tr>
+			<tr>
+				<td><a href="requestdetails.html">#000008</a></td>
+				<td><a href="requestdetails.html">phone repair</a></td>
+				<td><a href="requestdetails.html">Approved</a></td>
+				<td><a href="requestdetails.html">Resolved</a></td>
+				<td><a href="requestdetails.html">4/03/2018</a></td>
+			</tr>
+		</table>
+		<div class="pagination">
+			<a href="#">&laquo;</a>
+			<a href="#">1</a>
+			<a href="#" class="active">2</a>
+			<a href="#">3</a>
+			<a href="#">4</a>
+			<a href="#">5</a>
+			<a href="#">6</a>
+			<a href="#">&raquo;</a>
 		</div>
 	</div>
-	<div class="row">
-		<input type="submit" value="Send Request">
-	</div>
-</form>
 </div>
-</div>
-
 <div class="footer">
-	<h2>Contact Us</h2>
-	<span>08099996666</span>
+		<h5>© Copyright 2018 Template By Muche - All Rights Reserved</h5>
 </div>
-
 </body>
 </html>

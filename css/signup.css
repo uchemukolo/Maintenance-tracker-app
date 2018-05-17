@@ -10,10 +10,12 @@ body {
 }
 
 .container {
-    border-radius: 5px;
+    border-radius: 10px;
     margin: auto;
-    padding: 20px;
+    padding: 10px 0px 10px 0px;
     width: 60%;
+    background-color: #f3f1f1;
+
 }
 
 input[type=text], select, textarea {
