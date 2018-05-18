@@ -59,9 +59,9 @@ body {
 .container {
     float: left;
     margin: 6px auto;
+    padding: 10px;
     text-align: left;
     width: 30%;
-    padding: 10px;
 }
 .container2 {
     float: left;
@@ -72,9 +72,9 @@ body {
 .container_confirm {
     float: left;
     margin: 10px auto;
+    padding: 50px;
     text-align: left;
     width: 30%;
-    padding: 50px;
 }
 .date {
     color: #000000;
@@ -131,22 +131,22 @@ img{
   }
 
   input[type=text], select, textarea {
-    border: 1px solid #ccc;
+    border: 1px solid #f3f1f1;
     border-radius: 4px;
-    resize: vertical;
     margin: 5px auto;
     padding: 10px;
+    resize: vertical;
     width: 300px;
 }
 .make_request {
-
+    background-color: #ccc;
     float:left;
     margin-top:7px;
     margin-bottom: 7px;
     padding:0px 20px 20px 0px;
     text-align:center;
     width:30%;
-    background-color: #ccc
+
 }
 .main {
     background-color: #ffffff;
@@ -155,15 +155,16 @@ img{
 }
 
 .main1 {
+    background-color: #f3f1f1;
     float:right;
     margin-top:7px;
     margin-bottom: 7px;
     padding:0px 20px 20px 0px;
     text-align:center;
     width:20%;
-    background-color: #f3f1f1
 }
 .menu {
+    background-color: #f3f1f1;
     float:left;
     margin-top:7px;
     margin-bottom: 7px;
@@ -171,7 +172,6 @@ img{
     margin-right: 4px;
     padding:0px 20px 20px 0px;
     width: 69%;
-    background-color: #f3f1f1
 }
 .menu a {
     color:#000000;
@@ -191,8 +191,8 @@ img{
 .navbar a {
     color: #000000;
     padding: 14px 20px;
-    text-decoration: none;
     text-align: center;
+    text-decoration: none;
 }
 
 .navbar a:hover {
@@ -209,8 +209,6 @@ img{
     font-size: 30px;
     padding: 3%;
     text-align: center;
-
-
 }
 
 .pagination {
@@ -219,12 +217,12 @@ img{
 }
 
 .pagination a {
+    border: 1px solid #000;
     color: 000;
     float: left;
     padding: 8px 16px;
     text-decoration: none;
     transition: background-color .3s;
-    border: 1px solid #000;
 }
 
 .pagination a.active {
@@ -286,21 +284,23 @@ img{
     background-image: url('../image/search.png');
     background-position: 10px 10px;
     background-repeat: no-repeat;
-    width: 100%;
-    font-size: 16px;
-    padding: 12px 20px 12px 40px;
     border: 1px solid #ddd;
+    font-size: 16px;
     margin-bottom: 12px;
+    padding: 12px 20px 12px 40px;
+    width: 100%;
+
 }
 #filter {
     background-image: url('../image/icons8-slider-50.png');
     background-position: 10px 10px;
     background-repeat: no-repeat;
-    width: 39%;
-    font-size: 16px;
-    padding: 12px 20px 12px 40px;
     border: 1px solid #ddd;
+    font-size: 16px;
     margin-bottom: 12px;
+    padding: 12px 20px 12px 40px;
+    width: 39%;
+
 }
 .status {
     color: #008000;
@@ -317,7 +317,6 @@ table {
     padding:0px 20px 20px 0px;
     text-align:left;
     width: 100%;
-
 }
 
 td, th {
