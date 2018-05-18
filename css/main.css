@@ -7,40 +7,45 @@ body {
     margin: 0;
 
 }
+.bg {
+    background-size: cover;
+    background-image: url("../image/bgim.jpg");
+    background-repeat: no-repeat;
+}
 .button {
-    border: 2px solid #ffff00;
+    border: 2px solid #008000;
     border-radius: 5px;
-    background-color: #ffff00;
-    color: #000000;
+    background-color: #008000;
+    color: #ffffff;
     font-size: 30px;
     margin-right: 20px;
     padding: 10px 25px 10px 25px;
     text-decoration: none;
 }
 .button1 {
-    border: 2px solid #ffff00;
+    border: 2px solid #008000;
     border-radius: 5px;
-    background-color: #ffff00;
-    color: #000000;
+    background-color: #008000;
+    color: #ffffff;
     font-size: 30px;
     padding: 10px 25px 10px 25px;
     text-decoration: none;
 }
 .button_d {
-    border: 2px solid #ffff00;
+    border: 2px solid #008000;
     border-radius: 5px;
-    background-color: #ffff00;
-    color: #000000;
+    background-color: #008000;
+    color: #ffffff;
     font-size: 15px;
     margin-right: 20px;
     padding: 10px 25px 10px 25px;
     text-decoration: none;
 }
 .button_d1 {
-    border: 2px solid #ffff00;
+    border: 2px solid #008000;
     border-radius: 5px;
-    background-color: #ffff00;
-    color: #000000;
+    background-color: #008000;
+    color: #ffffff;
     font-size: 15px;
     padding: 10px 25px 10px 25px;
     text-decoration: none;
@@ -64,6 +69,13 @@ body {
     text-align: left;
     width: 30%;
 }
+.container_confirm {
+    float: left;
+    margin: 10px auto;
+    text-align: left;
+    width: 30%;
+    padding: 50px;
+}
 .date {
     color: #000000;
     font-weight: bold;
@@ -76,27 +88,20 @@ body {
     text-align: left;
 }
 .footer {
-    background: #222121;
+    background: #333;
+    bottom: 0;
     color: #ffffff;
     padding: 5px;
+    position: fixed;
     text-align: center;
-    margin-top: 8%;
+    width: 100%;
 }
-
-.header {
-    background: #333333;
-    background-image: url("../image/bgimg.jpeg");
-    color: #ffff00;
-    padding: 0.1px 20px 0.1px 20px;
-    text-align: left;
-}
-
 .header1 {
     background-size: cover;
-    background-image: url("../image/bgimg.jpeg");
+    background-image: url("../image/Wooden-background.jpg");
     background-repeat: no-repeat;
-    color: #ffff00;
-    height: 800px;
+    color: #9acd32;
+    height: 600px;
     padding: 60px;
     text-align: center;
 }
@@ -111,14 +116,15 @@ img{
     float: left;
     margin-top: 6px;
     margin: auto;
+    padding: 10px;
     width: 75%;
   }
   input[type=submit] {
-    background-color: #ffff00;
+    background-color: #008000;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    color: #000000;
+    color: #ffffff;
     float: right;
     margin:5px auto;
     padding: 12px 20px;
@@ -140,7 +146,7 @@ img{
     padding:0px 20px 20px 0px;
     text-align:center;
     width:30%;
-    background-color: #f3f1f1
+    background-color: #ccc
 }
 .main {
     background-color: #ffffff;
@@ -176,7 +182,7 @@ img{
 }
 
 .navbar {
-    background-color: #ffff00;
+    background-color: #008000;
     display: flex;
     height: 35px;
     font-weight: bold;
@@ -213,17 +219,18 @@ img{
 }
 
 .pagination a {
-    color: black;
+    color: 000;
     float: left;
     padding: 8px 16px;
     text-decoration: none;
     transition: background-color .3s;
-    border: 1px solid #ddd;
+    border: 1px solid #000;
 }
 
 .pagination a.active {
-    background-color: #ffff00;
-    border: 1px solid #ffff00;
+    background-color: #008000;
+    border: 1px solid #000000;
+    color: #fff;
 }
 .res {
     color: #8a2be2;
@@ -262,7 +269,7 @@ img{
     text-align: center;
 }
 .request_id:hover {
-    color: #ff0000;
+    color: #008000;
 }
 
 #search {
@@ -325,14 +332,18 @@ tr:nth-child(even) {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin-bottom: 20px;
 
+
 }
 .welcome1 {
     font-size: 40px;
+    font-weight: bolder;
+    color: wheat
+
 }
 
   @media only screen and (max-width:700px) {
     /* For mobile phones: */
-    .menu, .main, .right {
+    .make_request, .request_list {
       width:100%;
     }
   @media screen and (max-width: 700px) {
