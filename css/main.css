@@ -261,7 +261,7 @@ img{
     margin-bottom: 7px;
     padding:0px 100px 20px 100px;
     text-align:center;
-    width:100%;
+    width: 100%;
 }
 .request_id {
     font-weight: bold;
@@ -276,7 +276,17 @@ img{
     background-image: url('../image/search.png');
     background-position: 10px 10px;
     background-repeat: no-repeat;
-    width: 100%;
+    width: 49%;
+    font-size: 16px;
+    padding: 12px 20px 12px 40px;
+    border: 1px solid #ddd;
+    margin-bottom: 12px;
+}
+#filter {
+    background-image: url('../image/icons8-slider-50.png');
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    width: 49%;
     font-size: 16px;
     padding: 12px 20px 12px 40px;
     border: 1px solid #ddd;
