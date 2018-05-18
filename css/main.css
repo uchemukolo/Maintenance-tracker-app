@@ -276,7 +276,17 @@ img{
     background-image: url('../image/search.png');
     background-position: 10px 10px;
     background-repeat: no-repeat;
-    width: 49%;
+    width: 60%;
+    font-size: 16px;
+    padding: 12px 20px 12px 40px;
+    border: 1px solid #ddd;
+    margin-bottom: 12px;
+}
+#search_user {
+    background-image: url('../image/search.png');
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    width: 100%;
     font-size: 16px;
     padding: 12px 20px 12px 40px;
     border: 1px solid #ddd;
@@ -286,7 +296,7 @@ img{
     background-image: url('../image/icons8-slider-50.png');
     background-position: 10px 10px;
     background-repeat: no-repeat;
-    width: 49%;
+    width: 39%;
     font-size: 16px;
     padding: 12px 20px 12px 40px;
     border: 1px solid #ddd;
