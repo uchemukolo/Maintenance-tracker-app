@@ -8,15 +8,16 @@ body {
 .container {
   background-color: #f3f1f1;
   border-radius: 10px;
-  margin: auto;
-  padding: 50px 0px 30px 0px;
+  margin: 18px auto;
+  padding: 10px 0px 10px 0px;
+  text-align: center;
   width: 30%;
 }
 .container_signin {
   background-color: #f3f1f1;
   border-radius: 10px;
-  margin: 50px auto;
-  padding: 50px 0px 30px 0px;
+  margin: 100px auto;
+  padding: 25px 0px 25px 0px;
   width: 30%;
 }
 

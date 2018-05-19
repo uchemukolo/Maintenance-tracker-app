@@ -56,11 +56,20 @@ body {
     font-weight: bold;
     text-align: left;
 }
-.container {
-    float: left;
-    margin: 6px auto;
-    padding: 10px;
-    text-align: left;
+.container_req_details {
+    background-color: #f3f1f1;
+    border-radius: 10px;
+    margin: 80px auto;
+    padding: 10px 10px 25px 10px;
+    text-align: center;
+    width: 30%;
+}
+.container_req_details_admin {
+    background-color: #f3f1f1;
+    border-radius: 10px;
+    margin: 100px auto;
+    padding: 0px 10px 35px 10px;
+    text-align: center;
     width: 30%;
 }
 .container2 {
@@ -70,12 +79,21 @@ body {
     width: 30%;
 }
 .container_confirm {
-    float: left;
-    margin: 10px auto;
-    padding: 50px;
-    text-align: left;
+    background-color: #f3f1f1;
+    border-radius: 10px;
+    margin: 130px auto;
+    padding: 0px 10px 35px 10px;
+    text-align: center;
     width: 30%;
 }
+.container_resolve {
+    background-color: #f3f1f1;
+    border-radius: 10px;
+    margin: 80px auto;
+    padding: 0px 10px 35px 10px;
+    text-align: center;
+    width: 30%;
+  }
 .date {
     color: #000000;
     font-weight: bold;
@@ -141,8 +159,7 @@ img{
 .make_request {
     background-color: #ccc;
     float:left;
-    margin-top:7px;
-    margin-bottom: 7px;
+    margin: auto;
     padding:0px 20px 20px 0px;
     text-align:center;
     width:30%;
@@ -246,8 +263,7 @@ img{
 }
 .request_list  {
     float: right;
-    margin-top:7px;
-    margin-bottom: 7px;
+    margin: auto;
     padding:0px 20px 20px 0px;
     text-align:center;
     width:69%;
