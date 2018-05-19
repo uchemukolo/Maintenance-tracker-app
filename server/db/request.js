@@ -1,7 +1,7 @@
 const Request = [
   {
+    id: 1,
     userId: 1,
-    requestId: 1,
     title: 'Faulty Laptop',
     category: 'Repair',
     description: ' My laptop is not coming up. Yesterday everything was working fine but this morning I noticed the laptop was very hot and not coming up',
@@ -9,8 +9,8 @@ const Request = [
     date: '15/05/2018'
   },
   {
+    id: 2,
     userId: 2,
-    requestId: 2,
     title: 'Faulty Phone',
     category: 'Repair',
     description: ' My phone is not coming up. Yesterday everything was working fine but this morning I noticed the laptop was very hot and not coming up',

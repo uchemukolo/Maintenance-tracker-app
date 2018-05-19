@@ -1,13 +1,13 @@
 import express from 'express';
-import bodyParser from 'body-parser';
 import request from '../controllers/requests';
+import Validate from '../middleware/validate';
 
 const router = express.Router();
 
 router.get('/', request.getAll);
 router.get('/:requestId', request.getOne);
-router.post('/', request.add);
-router.put('/:requestId', request.modify);
+router.post('/', Validate.createRequest, request.createRequest);
+router.put('/:requestId', request.modifyRequest);
 
 
 export default router;
