@@ -9,7 +9,8 @@
     "build": "babel ./server",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "coveralls": "nyc --reporter=lcov --reporter=text-lcov npm test",
-    "postinstall": "npm run build"
+    "postinstall": "npm run build",
+    "migrate": "node server/models/database.js"
   },
   "repository": {
     "type": "git",
@@ -40,6 +41,7 @@
     "mocha-lcov-reporter": "^1.3.0",
     "morgan": "^1.9.0",
     "nyc": "^11.8.0",
+    "pg": "^7.4.3",
     "supertest": "^3.1.0",
     "validatorjs": "^3.14.2"
   },
