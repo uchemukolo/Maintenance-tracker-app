@@ -11,11 +11,11 @@ const request = requests;
  */
 class Request {
   /**
-	 *@description - Fetch all the requests of a logged in user
- 	 *
-   *@param {object} request - HTTP request
+    *@description - Fetch all the requests of a logged in user
+    *
+   *@param {object} req - HTTP request
    *
-   * @param {object} response
+   * @param {object} res
    *
    * @return {object} this - Class instance
    *
@@ -30,8 +30,8 @@ class Request {
     return this;
   }
   /**
-	 *@description - Get a the request of a logged in user
- 	 *
+    *@description - Get a the request of a logged in user
+    *
    *@param {object} req - HTTP request
    *
    * @param {object} res
@@ -57,8 +57,8 @@ class Request {
     return this;
   }
   /**
-	 *@description - Create a request
- 	 *
+    *@description - Create a request
+    *
    *@param {object} req - HTTP request
    *
    * @param {object} res
@@ -88,9 +88,9 @@ class Request {
   /**
    *@description - Modify details of a request
    *
-   *@param {object} request - HTTP request
+   *@param {object} req - HTTP request
    *
-   * @param {object} response
+   * @param {object} res
    *
    * @return {object} this - Class instance
    *
