@@ -7,9 +7,9 @@ import Validator from 'validatorjs';
 class Validate {
   /**
    *
-   * @param {request} request
+   * @param {request} req
    *
-   * @param {response} response
+   * @param {response} res
    *
    * @param {function} next
    *
@@ -17,11 +17,11 @@ class Validate {
    *
    * @memberof Validate
    */
-  static userId(request, response, next) {
-    const { userId } = request.params;
+  static userId(req, res, next) {
+    const { userId } = req.params;
 
     if (isNaN(userId)) {
-      return response.status(400).json({
+      return res.status(400).json({
         message: 'Parameter must be a number!'
       });
     }
@@ -29,9 +29,9 @@ class Validate {
   }
   /**
    *
-   * @param {request} request
+   * @param {request} req
    *
-   * @param {response} response
+   * @param {response} res
    *
    * @param {function} next
    *
@@ -39,23 +39,110 @@ class Validate {
    *
    * @memberof Validate
    */
-  static requestId(request, response, next) {
-    const { requestId } = request.params;
+  static requestId(req, res, next) {
+    const { requestId } = req.params;
 
     if (isNaN(requestId)) {
-      return response.status(400).json({
+      return res.status(400).json({
         message: 'Parameter must be a number!'
       });
     }
     return next();
+  }
+  /**
+   *
+   * @static
+   *
+   * @param {object} req
+   *
+   * @param {object} res
+   *
+   * @param {function} next
+   *
+   * @returns {object} - JSON object and status code
+   *
+   * @memberof Validate
+   */
+  static signup(req, res, next) {
+    const {
+      username,
+      firstName,
+      lastName,
+      email,
+      password
+
+    } = req.body;
+
+    const userData = {
+      username,
+      firstName,
+      lastName,
+      email,
+      password
+    };
+
+    const userDataRules = {
+      username: 'required|string|min:5',
+      firstName: 'required|string|alpha|min:2',
+      lastName: 'required|string|alpha|min:2',
+      email: 'required|string|email',
+      password: 'required|min:6'
+    };
+
+    const validation = new Validator(userData, userDataRules);
+    if (validation.passes()) {
+      next();
+    } else {
+      const errors = validation.errors.all();
+      return res.status(400)
+        .json({ message: errors });
+    }
+  }
+  /**
+   *
+   * @static
+   * @param {object} req
+   *
+   * @param {object} res
+   *
+   * @param {function} next
+   *
+   * @returns {object} - JSON object and status code
+   *
+   * @memberof Validate
+   */
+  static signin(req, res, next) {
+    const {
+      identifier,
+      password
+    } = req.body;
+
+    const userData = {
+      identifier,
+      password
+    };
+
+    const userDataRules = {
+      identifier: 'required|string',
+      password: 'required|min:6',
+    };
+
+    const validation = new Validator(userData, userDataRules);
+    if (validation.passes()) {
+      next();
+    } else {
+      const errors = validation.errors.all();
+      return res.status(400)
+        .json({ message: errors });
+    }
   }
   /**
    *
    *
    * @static
-   * @param {object} request
+   * @param {object} req
    *
-   * @param {object} response
+   * @param {object} res
    *
    * @param {function} next
    *
@@ -63,10 +150,10 @@ class Validate {
    *
    * @memberof Validate
   */
-  static createRequest(request, response, next) {
+  static createRequest(req, res, next) {
     const {
       title, category, urgencyLevel, description, date
-    } = request.body;
+    } = req.body;
 
     const createData = {
       title, category, urgencyLevel, description, date
@@ -85,7 +172,7 @@ class Validate {
       next();
     } else {
       const errors = validation.errors.all();
-      return response.status(400)
+      return res.status(400)
         .json({ message: errors });
     }
   }
