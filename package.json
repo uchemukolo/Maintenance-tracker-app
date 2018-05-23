@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon --exec babel-node server/bin/www",
-    "test": "npm run migrate nyc --reporter=html --reporter=text mocha --compilers js:babel-core/register server/tests/tests.js",
+    "test": "npm run migrate && nyc --reporter=html --reporter=text mocha --compilers js:babel-core/register server/tests/tests.js",
     "build": "babel ./server",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "coveralls": "nyc --reporter=lcov --reporter=text-lcov npm test",

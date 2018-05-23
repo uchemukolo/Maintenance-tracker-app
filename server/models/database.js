@@ -1,23 +1,31 @@
 const pg = require('pg');
 
-const connectionString = process.env.DATABASE_URL || 'postgres://postgres:asdflkj@localhost:5432/mtrack';
+const connectionString = process.env.DATABASE_URL || 'postgres://postgres:asdflkj@localhost:5432/maindb';
 
 const client = new pg.Client(connectionString);
 client.connect();
 
 const users = `
+DROP TABLE IF EXISTS users cascade;
   CREATE TABLE users(
     id SERIAL PRIMARY KEY,
     username VARCHAR(40) not null unique,
     firstName VARCHAR(40) not null,
     lastName VARCHAR(40) not null,
     email VARCHAR(40) not null unique,
-    password VARCHAR(40) not null,
+    hashPassword VARCHAR(255) not null,
     role VARCHAR(20) default 'user',
     created_at timestamp (0) without time zone default now())`;
 
+const seedUsers = `
+INSERT INTO users VALUES( default, 'muche', 'Uche', 'Mukolo', 'muche@wmail.com', 'asdflkj', 'Admin', default )`;
 
 const requests = `
+DROP TABLE IF EXISTS requests cascade;
+DROP TYPE category_type;
+DROP TYPE urgency_level_type;
+DROP TYPE status_type;
+DROP TYPE complete_status_type;
 CREATE TYPE category_type AS ENUM ('Repair', 'Maintenance');
 CREATE TYPE urgency_level_type AS ENUM ('High', 'Medium', 'Low');
 CREATE TYPE status_type AS ENUM ('Pending', 'Approved', 'Disapproved');
@@ -37,6 +45,10 @@ CREATE TABLE requests(
 `;
 
 client.query(users).then((res, err) => {
+  console.log(res);
+});
+
+client.query(seedUsers).then((res, err) => {
   console.log(res);
 });
 
