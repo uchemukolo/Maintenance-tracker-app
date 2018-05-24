@@ -7,7 +7,9 @@ import checkDetails from '../middleware/checks';
 const router = express.Router();
 
 
-router.post('/', Validate.signup, checkDetails, user.signUp);
+router.post('/signup', Validate.signup, checkDetails, user.signUp);
+router.post('/login', Validate.signin, user.signIn);
+
 // router.post('/', Validate.createRequest, request.createRequest);
 
 
