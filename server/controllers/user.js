@@ -7,11 +7,6 @@ const connectionString = process.env.DATABASE_URL || 'postgres://postgres:asdflk
 
 const client = new Client({
   connectionString,
-//   user: 'postgres',
-//   host: 'localhost',
-//   database: 'maindb',
-//   password: 'asdflkj',
-//   port: 5432,
 });
 client.connect();
 
