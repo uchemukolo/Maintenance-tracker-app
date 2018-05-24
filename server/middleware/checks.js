@@ -9,7 +9,7 @@ const client = new Client({
 });
 client.connect();
 
-const checkDetails = (req, res, next) => {
+const checkDetails = (req, res, done) => {
   const {
     username, email,
   } = req.body;
@@ -26,7 +26,7 @@ const checkDetails = (req, res, next) => {
         err: true
       });
     }
-    return next();
+    return done();
   });
 };
 export default checkDetails;
