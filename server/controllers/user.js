@@ -3,13 +3,15 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import Auth from '../middleware/Authenticate';
 
+const connectionString = process.env.DATABASE_URL || 'postgres://postgres:asdflkj@localhost:5432/maindb';
 
 const client = new Client({
-  user: 'postgres',
-  host: 'localhost',
-  database: 'maindb',
-  password: 'asdflkj',
-  port: 5432,
+  connectionString,
+//   user: 'postgres',
+//   host: 'localhost',
+//   database: 'maindb',
+//   password: 'asdflkj',
+//   port: 5432,
 });
 client.connect();
 
