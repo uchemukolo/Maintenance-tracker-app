@@ -12,7 +12,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/api/v1/users/requests', request);
-app.use('/api/v1/auth/signup', user);
+app.use('/api/v1/auth', user);
+// app.use('/api/v1/auth/login', user);
 
 app.get('', (req, res) => res.status(200).json({
   message: 'Welcome To Maintenance Tracker API!!!',
