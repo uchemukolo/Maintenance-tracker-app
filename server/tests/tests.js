@@ -29,6 +29,7 @@ describe('Create a New User', () => {
           ]
         };
         expect(res.status).to.equal(400);
+        expect(res.body.should.be.a('object'));
         expect(res.body).to.haveOwnProperty('message').to.eql(message);
         done();
       });
@@ -49,6 +50,7 @@ describe('Create a New User', () => {
           ]
         };
         expect(res.status).to.equal(400);
+        expect(res.body.should.be.a('object'));
         expect(res.body).to.haveOwnProperty('message').to.eql(message);
         done();
       });
@@ -69,6 +71,7 @@ describe('Create a New User', () => {
           ]
         };
         expect(res.status).to.equal(400);
+        expect(res.body.should.be.a('object'));
         expect(res.body).to.haveOwnProperty('message').to.eql(message);
         done();
       });
@@ -89,6 +92,7 @@ describe('Create a New User', () => {
           ]
         };
         expect(res.status).to.equal(400);
+        expect(res.body.should.be.a('object'));
         expect(res.body).to.haveOwnProperty('message').to.eql(message);
         done();
       });
@@ -107,10 +111,51 @@ describe('Create a New User', () => {
       })
       .end((err, res) => {
         expect(res.status).to.equal(201);
+        expect(res.body.should.be.a('object'));
         done();
       });
   });
 });
+describe('User Signin', () => {
+  it('should return 400 for no password', (done) => {
+    request(app)
+      .post('/api/v1/auth/login')
+      .send({
+        username: 'johndoe'
+      })
+      .end((err, res) => {
+        expect(res.status).to.equal(400);
+        expect(res.body.should.be.a('object'));
+        done();
+      });
+  });
+});
+it('should return 400 for no username', (done) => {
+  request(app)
+    .post('/api/v1/auth/login')
+    .send({
+      password: 'asdflkj'
+    })
+    .end((err, res) => {
+      expect(res.status).to.equal(400);
+      expect(res.body.should.be.a('object'));
+      done();
+    });
+});
+it('should not be able to signin if not registered', (done) => {
+  request(app)
+    .post('/api/v1/auth/login')
+    .send({
+    })
+    .end((err, res) => {
+      expect(res.status).to.equal(400);
+      expect(res.body.should.be.a('object'));
+      // res.body.should.have.property('Token');
+      // expect(res.body.should.have.property('message').equal('Signup Successful'));
+      done();
+    });
+});
+
 
 //   describe('Create a New Request', () => {
 //     it('return 201 for successful', (done) => {
