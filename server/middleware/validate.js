@@ -113,17 +113,17 @@ class Validate {
    */
   static signin(req, res, next) {
     const {
-      identifier,
+      email,
       password
     } = req.body;
 
     const userData = {
-      identifier,
+      email,
       password
     };
 
     const userDataRules = {
-      identifier: 'required|string',
+      email: 'required|string',
       password: 'required|min:6',
     };
 
@@ -131,7 +131,7 @@ class Validate {
     if (validation.passes()) {
       next();
     } else {
-      const errors = validation.errors.all();
+      const errors = validation.errors.add();
       return res.status(400)
         .json({ message: errors });
     }
@@ -152,11 +152,11 @@ class Validate {
   */
   static createRequest(req, res, next) {
     const {
-      title, category, urgencyLevel, description, date
+      title, category, description, urgencyLevel, status, completeStatus
     } = req.body;
 
     const createData = {
-      title, category, urgencyLevel, description, date
+      title, category, urgencyLevel, description, status, completeStatus
     };
 
     const createDataRules = {
@@ -164,7 +164,8 @@ class Validate {
       category: ['required', { in: ['Repair', 'Maintenance'] }],
       urgencyLevel: ['required', { in: ['High', 'Medium', 'Low'] }],
       description: 'required|string|min:10',
-      date: 'required|date'
+      status: 'required',
+      completeStatus: 'required'
     };
 
     const validation = new Validator(createData, createDataRules);
