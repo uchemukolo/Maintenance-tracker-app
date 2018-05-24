@@ -1,6 +1,18 @@
-import requests from '../db/request';
+import { Client } from 'pg';
+import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
+import Auth from '../middleware/Authenticate';
 
-const request = requests;
+const client = new Client({
+  user: 'postgres',
+  host: 'localhost',
+  database: 'maindb',
+  password: 'asdflkj',
+  port: 5432,
+});
+client.connect();
+
+
 /**
  *
  *@description - Class Definition for the Request class
@@ -22,11 +34,24 @@ class Request {
    * @memberof Request
    */
   getAll(req, res) {
-    return res.status(200).json({
-      message: 'Successful',
-      request: requests,
-      error: false
-    });
+    const text = 'SELECT * FROM requests WHERE user_id = $1';
+    const values = [req.decode.id];
+
+    client.query(text, values)
+      .then((result) => {
+        if (result.rows.length > 0) {
+          return res.status(200).json({
+            data: result.rows[0],
+            message: 'Successful',
+            error: false
+          });
+        }
+        return res.status(404).json({
+          message: 'No information',
+          status: 'fail'
+        });
+      });
+
     return this;
   }
   /**
@@ -41,19 +66,24 @@ class Request {
    * @memberof Request
    */
   getOne(req, res) {
-    for (let i = 0; i < request.length; i++) {
-      if (request[i].id === parseInt(req.params.requestId, 10)) {
-        return res.json({
-          message: 'Successful',
-          request: requests[i],
-          error: false
+    const { requestId } = req.params;
+    const text = 'SELECT * FROM requests WHERE id = $1 AND user_id = $2';
+    const values = [requestId, req.decode.id];
+
+    client.query(text, values)
+      .then((result) => {
+        if (result.rows[0]) {
+          return res.status(200).json({
+            data: result.rows,
+            message: 'Successful',
+            error: false
+          });
+        }
+        return res.status(404).json({
+          message: 'Request not found',
+          status: 'fail'
         });
-      }
-    }
-    return res.status(404).json({
-      message: 'Request not found!',
-      error: true
-    });
+      });
     return this;
   }
   /**
@@ -69,22 +99,36 @@ class Request {
    */
   createRequest(req, res) {
     const {
-      title, category, description, urgencyLevel, date
+      title, category, description, urgencyLevel, status, completeStatus
     } = req.body;
+    const decoded = jwt.decode(req.headers.token);
+    const text = 'INSERT INTO requests(title, category, description, urgencyLevel, status, completeStatus) VALUES($1, $2, $3, $4, $5, $6) RETURNING *';
+    const values = [title, category, description, urgencyLevel, status, completeStatus];
 
-
-    const id = requests.length + 1;
-
-    requests.push({
-      id, userId: 1, title, category, description, urgencyLevel, date
-    });
-    return res.status(201).json({
-      message: 'Request Created Successfully',
-      request: requests,
-      error: false
-    });
+    client.query(text, values);
+    client.end()
+      .then(() => {
+        // console.log(newRequest);
+        const newRequest = {
+          userId: decoded.id,
+          title,
+          category,
+          description,
+          urgencyLevel,
+          status,
+          completeStatus
+        };
+        res.status(201).json({
+          message: 'Request Added Successfully',
+          newRequest
+        });
+      })
+      .catch(() => res.status(500).json({
+        message: 'Some error occured!'
+      }));
     return this;
   }
+
   /**
    *@description - Modify details of a request
    *
@@ -97,25 +141,29 @@ class Request {
    * @memberof Request
    */
   modifyRequest(req, res) {
-    for (let i = 0; i < request.length; i++) {
-      if (request[i].id === parseInt(req.params.requestId, 10)) {
-        request[i].title = req.body.title;
-        request[i].category = req.body.category;
-        request[i].description = req.body.description;
-        request[i].urgencyLevel = req.body.urgencyLevel;
-        request[i].date = req.body.date;
-        return res.json({
+    const decoded = jwt.decode(req.headers.token);
+    const { requestId } = req.params;
+    const { title, details } = req.body;
+
+    const text = 'UPDATE requests SET title = $1, details = $2 WHERE id = $3 AND user_id = $4';
+    const values = [title, details, requestId, req.decode.id];
+
+    client.query(text, values)
+      .then((updated) => {
+        if (!updated) {
+          return res.status(404).send({
+            message: 'Request Not Found',
+          });
+        }
+        return res.status(201).send({
           message: 'Update Successful',
-          request: requests,
-          error: false
-        });
-      }
-      return res.status(404).json({
-        message: 'Request not found',
-        error: true
+          updated
+        })
+          .catch(() => res.status(500).send({
+            message: 'Some error occured!'
+          }));
       });
-      return this;
-    }
+    return this;
   }
 }
 const requestController = new Request();

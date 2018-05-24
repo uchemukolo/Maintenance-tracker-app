@@ -1,6 +1,8 @@
 import { Client } from 'pg';
 import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
 import Auth from '../middleware/Authenticate';
+
 
 const client = new Client({
   user: 'postgres',
@@ -48,7 +50,7 @@ class Users {
           lastName,
           email
         };
-        // console.log(newUser);
+
         const token = Auth.createToken(newUser);
         res.status(201).json({
           message: 'Signup Successful',
@@ -60,6 +62,53 @@ class Users {
         res.status(500).json({
           error: 'Server Error'
         });
+      });
+    return this;
+  }
+  /**
+   * @description - signin an exiating user
+   *
+   * @param {object} req - HTTP request
+   *
+   * @param {object} res
+   *
+   * @return {object} this - Class instance
+   *
+   * @memberof Users
+   */
+  signIn(req, res) {
+    const {
+      username, password,
+    } = req.body;
+
+    const text = `SELECT * FROM users WHERE username = '${username}'`;
+
+    client.query(text)
+      .then((foundUser) => {
+        if (!foundUser.rows[0]) {
+          res.status(400).send({
+            message: 'Incorrect Signin Credentials!'
+          });
+        } else if (bcrypt.compareSync(password, foundUser.rows[0].hashpassword)) {
+          const user = {
+            id: foundUser.id,
+            role: foundUser.role,
+            username: foundUser.username,
+            email: foundUser.email
+          };
+          const token = jwt.sign(user, process.env.SECRET_KEY, {
+            expiresIn: '1d'
+          });
+          console.log(token);
+          return res.status(200).send({
+            message: 'Signin Successful!',
+            Token: token
+          });
+        } else {
+          res.status(400).send({
+            message: 'Incorrect Password'
+          });
+        }
       });
     return this;
   }

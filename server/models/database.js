@@ -1,4 +1,8 @@
+const bcrypt = require('bcrypt');
+
 const pg = require('pg');
+
+// const hashPassword = (bcrypt.hashSync(process.env.H_PASSWORD, 10));
 
 const connectionString = process.env.DATABASE_URL || 'postgres://postgres:asdflkj@localhost:5432/maindb';
 
@@ -17,8 +21,9 @@ DROP TABLE IF EXISTS users cascade;
     role VARCHAR(20) default 'user',
     created_at timestamp (0) without time zone default now())`;
 
+
 const seedUsers = `
-INSERT INTO users VALUES( default, 'muche', 'Uche', 'Mukolo', 'muche@wmail.com', 'asdflkj', 'Admin', default )`;
+INSERT INTO users VALUES( default, 'muche', 'Uche', 'Mukolo', 'muche@email.com', '$asdflkj', 'Admin', default )`;
 
 const requests = `
 DROP TABLE IF EXISTS requests cascade;
