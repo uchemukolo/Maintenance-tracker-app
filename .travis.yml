@@ -1,18 +1,14 @@
 language: node_js
 node_js:
-  - "9"
+   - "stable"
 
 services:
   - postgresql
 
-before_install:
-  - npm install -g npm@latest
-
-before_script:
-  - psql -c 'create database travis_ci_test;' -U postgres
+before-script:
+    - npm install
 
 script:
-  - npm test
-
-after_success: npm run coverage
-
+    - npm test
+    - npm run coverage
+after_success: 'npm run coveralls'
