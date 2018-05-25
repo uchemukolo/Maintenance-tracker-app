@@ -5,22 +5,14 @@ node_js:
 services:
   - postgresql
 
- postgres:
- adapter: postgresql
- database: maindb
- username: postgres
-
 before_install:
   - npm install -g npm@latest
 
 before_script:
- - psql -c 'create database travis;' -U postgres
- - chmod 0777 ./node_modules/.bin/mocha
- - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
- - chmod +x ./cc-test-reporter
- - ./cc-test-reporter before-build
+  - psql -c 'create database travis_ci_test;' -U postgres
 
 script:
   - npm test
 
 after_success: npm run coverage
+
