@@ -97,20 +97,12 @@ describe('Create a New User', () => {
         done();
       });
   });
-  it('should be able to signup', (done) => {
+  it('should not be able to signup if no user imput details', (done) => {
     request(app)
       .post('/api/v1/auth/signup')
-      .send({
-        id: 3,
-        username: 'johndoe',
-        firstName: 'John',
-        lastName: 'Doe',
-        email: 'johndoe@email.com',
-        password: 'asdflkj',
-        role: 'User'
-      })
+      .send()
       .end((err, res) => {
-        expect(res.status).to.equal(201);
+        expect(res.status).to.equal(400);
         expect(res.body.should.be.a('object'));
         done();
       });
@@ -150,8 +142,19 @@ it('should not be able to signin if not registered', (done) => {
     .end((err, res) => {
       expect(res.status).to.equal(400);
       expect(res.body.should.be.a('object'));
-      // res.body.should.have.property('Token');
-      // expect(res.body.should.have.property('message').equal('Signup Successful'));
+      done();
+    });
+});
+it('should return 400 for wrong password', (done) => {
+  request(app)
+    .post('/api/v1/auth/login')
+    .send({
+      username: 'johndoe',
+      password: 'asdflkjx'
+    })
+    .end((err, res) => {
+      expect(res.status).to.equal(400);
+      expect(res.body.should.be.a('object'));
       done();
     });
 });
