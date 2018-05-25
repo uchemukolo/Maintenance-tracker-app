@@ -3,7 +3,7 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import Auth from '../middleware/Authenticate';
 
-const connectionString = process.env.DATABASE_URL || 'postgres://postgres:asdflkj@localhost:5432/maindb';
+const connectionString = process.env.DATABASE_URL;
 
 const client = new Client({
   connectionString,

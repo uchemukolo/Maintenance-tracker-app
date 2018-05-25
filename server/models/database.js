@@ -4,7 +4,7 @@ const pg = require('pg');
 
 // const hashPassword = (bcrypt.hashSync(process.env.H_PASSWORD, 10));
 
-const connectionString = process.env.DATABASE_URL || 'postgres://postgres:asdflkj@localhost:5432/maindb';
+const connectionString = process.env.DATABASE_URL;
 
 const client = new pg.Client(connectionString);
 client.connect();
