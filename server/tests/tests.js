@@ -107,6 +107,120 @@ describe('Create a New User', () => {
         done();
       });
   });
+  it('should return error if username is too short', (done) => {
+    request(app)
+      .post('/api/v1/auth/signup')
+      .send({
+        username: 'jo',
+        firstName: 'John',
+        lastName: 'Doe',
+        email: 'Johndoe@email.com',
+        password: 'asdflkj'
+      })
+      .end((err, res) => {
+        const message = {
+          username: [
+            'The username must be at least 5 characters.'
+          ]
+        };
+        expect(res.status).to.equal(400);
+        expect(res.body.should.be.a('object'));
+        expect(res.body).to.haveOwnProperty('message').to.eql(message);
+        done();
+      });
+  });
+  it('should return error if password is too short', (done) => {
+    request(app)
+      .post('/api/v1/auth/signup')
+      .send({
+        username: 'johndoe',
+        firstName: 'John',
+        lastName: 'Doe',
+        email: 'Johndoe@email.com',
+        password: 'asdf'
+      })
+      .end((err, res) => {
+        const message = {
+          password: [
+            'The password must be at least 6 characters.'
+          ]
+        };
+        expect(res.status).to.equal(400);
+        expect(res.body.should.be.a('object'));
+        expect(res.body).to.haveOwnProperty('message').to.eql(message);
+        done();
+      });
+  });
+  it('should return error if username is too long', (done) => {
+    request(app)
+      .post('/api/v1/auth/signup')
+      .send({
+        username: 'johndoejohndoejohndoejohndoejohndoejohndoejohndoejohndoejohndoejohndoejohndoejohndoejohndoejohndoejohndoejohndoejohndoejohndoejohndoejohndoejohndoejohndoejohndoe',
+        firstName: 'John',
+        lastName: 'Doe',
+        email: 'Johndoe@email.com',
+        password: 'asdf'
+      })
+      .end((err, res) => {
+        expect(res.status).to.equal(400);
+        expect(res.body.should.be.a('object'));
+        done();
+      });
+  });
+  it('should return error if first Name is too long', (done) => {
+    request(app)
+      .post('/api/v1/auth/signup')
+      .send({
+        username: 'johndoe',
+        firstName: 'Johnjohndoejohndoejohndoejohndoejohndoejohndoejohndoejohndoejohndoejohndoejohndoejohndoejohndoejohndoejohndoejohndoejohndoejohndoejohndoejohndoejohndoejohndoejohndoe',
+        lastName: 'Doe',
+        email: 'Johndoe@email.com',
+        password: 'asdf'
+      })
+      .end((err, res) => {
+        expect(res.status).to.equal(400);
+        expect(res.body.should.be.a('object'));
+        done();
+      });
+  });
+  it('should return error if Last Name is too long', (done) => {
+    request(app)
+      .post('/api/v1/auth/signup')
+      .send({
+        username: 'johndoe',
+        firstName: 'John',
+        lastName: 'DoeJohnjohndoejohndoejohndoejohndoejohndoejohndoejohndoejohndoejohndoejohndoejohndoejohndoejohndoejohndoejohndoejohndoejohndoejohndoejohndoejohndoejohndoejohndoejohndoe',
+        email: 'Johndoe@email.com',
+        password: 'asdflkj'
+      })
+      .end((err, res) => {
+        expect(res.status).to.equal(400);
+        expect(res.body.should.be.a('object'));
+        done();
+      });
+  });
+  // it('should allow New User Signup', (done) => {
+  //   request(app)
+  //     .post('/api/v1/auth/signup')
+  //     .send({
+  //       username: 'johndoe',
+  //       firstName: 'John',
+  //       lastName: 'Doe',
+  //       email: 'johnjoe@email.com',
+  //       password: 'asdflkj'
+  //     })
+  //     .end((err, res) => {
+  //       expect(res.status).to.equal(201);
+  //       expect(res.body.should.be.a('object'));
+  //       expect(res.body).to.have.a.property('message');
+  //       expect(res.body.message).to.equal('Signup Successful');
+  //       expect(res.body.data.user).to.have.a.property('username');
+  //       expect(res.body.data.user).to.have.a.property('password');
+  //       expect(res.body.data.user).to.have.a.property('email');
+  //       expect(res.body.data.user).to.have.a.property('id');
+  //       done();
+  //     });
+  // });
 });
 describe('User Signin', () => {
   it('should return 400 for no password', (done) => {
