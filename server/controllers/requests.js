@@ -1,8 +1,10 @@
 import { Client } from 'pg';
 import bcrypt from 'bcrypt';
+import dotenv from 'dotenv';
 import jwt from 'jsonwebtoken';
 import Auth from '../middleware/Authenticate';
 
+dotenv.config();
 const connectionString = process.env.DATABASE_URL;
 
 const client = new Client({

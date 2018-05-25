@@ -1,8 +1,8 @@
+import dotenv from 'dotenv';
 
+dotenv.config();
 
 const pg = require('pg');
-
-// const hashPassword = (bcrypt.hashSync(process.env.H_PASSWORD, 10));
 
 const connectionString = process.env.DATABASE_URL;
 

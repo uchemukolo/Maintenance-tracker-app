@@ -10,7 +10,7 @@ const should = chai.should();
 const expect = chai.expect;
 
 export let token;
-export let billId;
+export let requestId;
 
 describe('Create a New User', () => {
   it('should return 400 for no password', (done) => {
