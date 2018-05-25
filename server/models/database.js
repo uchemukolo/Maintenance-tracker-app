@@ -4,7 +4,7 @@ dotenv.config();
 
 const pg = require('pg');
 
-const connectionString = process.env.DATABASE_URL;
+const connectionString = process.env.DATABASE_URL || 'postgres://postgres:asdflkj@localhost:5432/maindb';
 
 const client = new pg.Client(connectionString);
 client.connect();

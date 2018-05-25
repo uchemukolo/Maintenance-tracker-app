@@ -5,7 +5,7 @@ import jwt from 'jsonwebtoken';
 import Auth from '../middleware/Authenticate';
 
 dotenv.config();
-const connectionString = process.env.DATABASE_URL;
+const connectionString = process.env.DATABASE_URL || 'postgres://postgres:asdflkj@localhost:5432/maindb';
 
 const client = new Client({
   connectionString,
