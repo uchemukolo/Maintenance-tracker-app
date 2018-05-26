@@ -1,16 +1,13 @@
 import express from 'express';
 import Validate from '../middleware/validate';
-import user from '../controllers/user';
-import checkDetails from '../middleware/checks';
-// import Auth from '../middleware/Authenticate';
+import User from '../controllers/user';
 
 const router = express.Router();
 
+const userController = new User();
 
-router.post('/signup', Validate.signup, checkDetails, user.signUp);
-router.post('/login', Validate.signin, user.signIn);
-
-// router.post('/', Validate.createRequest, request.createRequest);
+router.post('/signup', Validate.signup, userController.signUp);
+router.post('/login', Validate.signin, userController.signIn);
 
 
 export default router;
