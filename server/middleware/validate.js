@@ -9,7 +9,7 @@ class Validate {
    *
    * @param {request} req
    *
-   * @param {response} res
+   * @param {res} res
    *
    * @param {function} next
    *
@@ -31,7 +31,7 @@ class Validate {
    *
    * @param {request} req
    *
-   * @param {response} res
+   * @param {res} res
    *
    * @param {function} next
    *
@@ -113,17 +113,18 @@ class Validate {
    */
   static signin(req, res, next) {
     const {
+      username,
       email,
       password
     } = req.body;
 
     const userData = {
-      email,
+      username: (username || email),
       password
     };
 
     const userDataRules = {
-      email: 'required|string',
+      username: 'required|string',
       password: 'required|min:6',
     };
 

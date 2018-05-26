@@ -1,4 +1,4 @@
-import dotenv from 'dotenv';
+const dotenv = require('dotenv');
 
 dotenv.config();
 
@@ -6,8 +6,8 @@ const pg = require('pg');
 
 const connectionString = process.env.DATABASE_URL || 'postgres://postgres:asdflkj@localhost:5432/maindb';
 
-const client = new pg.Client(connectionString);
-client.connect();
+const pool = new pg.Client(connectionString);
+pool.connect();
 
 const users = `
 DROP TABLE IF EXISTS users cascade;
@@ -17,7 +17,7 @@ DROP TABLE IF EXISTS users cascade;
     firstName VARCHAR(40) not null,
     lastName VARCHAR(40) not null,
     email VARCHAR(40) not null unique,
-    hashPassword VARCHAR(255) not null,
+    password VARCHAR(225) not null,
     role VARCHAR(20) default 'user',
     created_at timestamp (0) without time zone default now())`;
 
@@ -49,15 +49,16 @@ CREATE TABLE requests(
    )
 `;
 
-client.query(users).then((res, err) => {
+
+pool.query(users).then((res, err) => {
   console.log(res);
 });
 
-client.query(seedUsers).then((res, err) => {
+pool.query(seedUsers).then((res, err) => {
   console.log(res);
 });
 
-client.query(requests).then((res, err) => {
+pool.query(requests).then((res, err) => {
   console.log(res);
-  client.end();
 });
+
