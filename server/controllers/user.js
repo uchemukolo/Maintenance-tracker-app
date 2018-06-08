@@ -88,9 +88,10 @@ class Users {
             });
           });
       })
-      .catch(() => {
+      .catch((err) => {
         res.status(500).json({
-          error: 'Server Error'
+          message: 'Server Error',
+          error: err.message
         });
       });
 
@@ -115,32 +116,35 @@ class Users {
 
     pool.query(text)
       .then((found) => {
+        console.log(found, '>>>>>>>>>.');
         if (!found.rows[0]) {
           return res.status(400).json({
             message: 'Invalid Username or Password!'
           });
         } else if (bcrypt.compareSync(password, found.rows[0].password)) {
-          const userDetials = {
+          const userDetails = {
             id: found.id,
             username: found.username,
             email: found.email,
             role: found.role
           };
-          console.log(userDetials);
-          const token = jwt.sign(userDetials, process.env.SECRET_KEY, {
+          console.log(userDetails);
+          const token = jwt.sign(userDetails, process.env.SECRET_KEY, {
             expiresIn: '1d'
           });
           return res.status(200).json({
             message: 'Login Successful!',
+            userDetails,
             token
           });
         }
         return res.status(400).json({
           message: 'Incorrect Password!'
         })
-          .catch(() => {
+          .catch((err) => {
             res.status(500).json({
-              error: 'Server Error'
+              message: 'Server Error',
+              error: err.message
             });
           });
       });

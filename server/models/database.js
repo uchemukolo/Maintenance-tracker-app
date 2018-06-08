@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS users cascade;
 
 
 const seedUsers = `
-INSERT INTO users VALUES( default, 'muche', 'Uche', 'Mukolo', 'muche@email.com', '$asdflkj', 'Admin', default )`;
+INSERT INTO users VALUES( default, 'muche', 'Uche', 'Mukolo', 'muche@email.com', 'asdflkj', 'Admin', default )`;
 
 const requests = `
 DROP TABLE IF EXISTS requests cascade;
