@@ -11,6 +11,7 @@ body {
     background-size: cover;
     background-image: url("../image/bgim.jpg");
     background-repeat: no-repeat;
+
 }
 .button {
     border: 2px solid #008000;
@@ -50,7 +51,6 @@ body {
     padding: 10px 25px 10px 25px;
     text-decoration: none;
 }
-
 .cat {
     color: #000000;
     font-weight: bold;
@@ -119,9 +119,10 @@ body {
     background-image: url("../image/Wooden-background.jpg");
     background-repeat: no-repeat;
     color: #9acd32;
-    height: 600px;
-    padding: 60px;
-    text-align: center;
+    height: 1500px;
+    padding: 100px;
+    float: left;
+    width: 100%;
 }
 
 img{
@@ -315,7 +316,7 @@ img{
     font-size: 16px;
     margin-bottom: 12px;
     padding: 12px 20px 12px 40px;
-    width: 39%;
+    width: 39.6%;
 
 }
 .status {
@@ -363,16 +364,22 @@ tr:nth-child(even) {
 }
 
 .welcome {
-    font-size: 100px;
+    align-content: center;
+    border: auto;
+    font-size: 80px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin-bottom: 20px;
+    text-align: center;
 
 
 }
 .welcome1 {
-    font-size: 40px;
+    align-content: center;
+    color: wheat;
+    font-size: 30px;
     font-weight: bolder;
-    color: wheat
+    text-align: center;
+
 
 }
 
