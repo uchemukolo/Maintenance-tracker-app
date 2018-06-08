@@ -1,109 +1,192 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>My Page</title>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="css/main.css">
-<link rel="stylesheet" href="css/signup.css">
+  <title>My Page</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/signup.css">
 
 </head>
+
 <body class="bg">
-		<div class="topnav" id="myTopnav">
-				<a href="../index.html" class="active">M-Tracker</a>
-				<a href="../index.html">Home</a>
-				<a href="../index.html">Sign Out</a>
-				<a href="javascript:void(0);" class="icon" onclick="mytopNavbar()">
-				</a>
-				</div>
-<div style="overflow:auto">
-	<div class="request_list1">
-		<h2 class="user_divv">Requests</h2>
+  <div class="topnav" id="myTopnav">
+    <a href="../index.html" class="active">M-Tracker</a>
+    <a href="../index.html">Home</a>
+    <a href="../index.html">Sign Out</a>
+    <a href="javascript:void(0);" class="icon" onclick="mytopNavbar()">
+    </a>
+  </div>
+  <div style="overflow:auto">
+    <div class="request_list1">
+      <h2 class="user_divv">Requests</h2>
 
-		<input type="text" id="search" onkeyup="myFunction()" placeholder="Search by..." title="Type in a word">
-				<input type="text" id="filter" onkeyup="myFunction()" placeholder="Filter by .." title="Type in a word">
+      <input type="text" id="search" onkeyup="myFunction()" placeholder="Search by..." title="Type in a word">
+      <input type="text" id="filter" onkeyup="myFunction()" placeholder="Filter by .." title="Type in a word">
 
-		<table>
-			<tr>
-				<th>Request ID</th>
-				<th>Title</th>
-				<th>Status</th>
-				<th>Complete Status</th>
-				<th>Date</th>
-			</tr>
-			<tr>
-				<td><a href="requestdetails_admin.html">#000001</a></td>
-				<td><a href="requestdetails_admin.html">Laptop repair</a></td>
-				<td><a href="requestdetails_admin.html">Pending</a></td>
-				<td><a href="requestdetails_admin.html">Pending</a></td>
-				<td><a href="requestdetails_admin.html">18/05/2018</a></td>
-			</tr>
-			<tr>
-				<td><a href="requestdetails_admin.html">#000002</a></td>
-				<td><a href="requestdetails_admin.html">Phone repair</a></td>
-				<td><a href="requestdetails_admin.html">Approved</a></td>
-				<td><a href="requestdetails_admin.html">Pending</a></td>
-				<td><a href="requestdetails_admin.html">17/05/2018</a></td>
-			</tr>
-			<tr>
-				<td><a href="requestdetails_admin.html">#000003</a></td>
-				<td><a href="requestdetails_admin.html">Laptop repair</a></td>
-				<td><a href="requestdetails_admin.html">Approved</a></td>
-				<td><a href="requestdetails_admin.html">Pending</a></td>
-				<td><a href="requestdetails_admin.html">16/05/2018</a></td>
-			</tr>
-			<tr>
-				<td><a href="requestdetails_admin.html">#000004</a></td>
-				<td><a href="requestdetails_admin.html">Laptop repair</a></td>
-				<td><a href="requestdetails_admin.html">Approved</a></td>
-				<td><a href="requestdetails_admin.html">Pending</a></td>
-				<td><a href="requestdetails_admin.html">14/05/2018</a></td>
-			</tr>
-			<tr>
-				<td><a href="requestdetails_admin.html">#000005</a></td>
-				<td><a href="requestdetails_admin.html">Car repair</a></td>
-				<td><a href="requestdetails_admin.html">Approved</a></td>
-				<td><a href="requestdetails_admin.html">Pending</a></td>
-				<td><a href="requestdetails_admin.html">14/05/2018</a></td>
-			</tr>
-			<tr>
-				<td><a href="requestdetails_admin.html">#000006</a></td>
-				<td><a href="requestdetails_admin.html">Vehicle Maintenance</a></td>
-				<td><a href="requestdetails_admin.html">Approved</a></td>
-				<td><a href="requestdetails_admin.html">Resolved</a></td>
-				<td><a href="requestdetails_admin.html">31/03/2018</a></td>
-			</tr>
-			<tr>
-				<td><a href="requestdetails_admin.html">#000007</a></td>
-				<td><a href="requestdetails_admin.html">Laptop repair</a></td>
-				<td><a href="requestdetails_admin.html">Approved</a></td>
-				<td><a href="requestdetails_admin.html">Resolved</a></td>
-				<td><a href="requestdetails_admin.html">22/03/2018</a></td>
-			</tr>
-			<tr>
-				<td><a href="requestdetails_admin.html">#000008</a></td>
-				<td><a href="requestdetails_admin.html">phone repair</a></td>
-				<td><a href="requestdetails_admin.html">Approved</a></td>
-				<td><a href="requestdetails_admin.html">Resolved</a></td>
-				<td><a href="requestdetails_admin.html">4/03/2018</a></td>
-			</tr>
-		</table>
-		<div class="pagination">
-			<a href="#">&laquo;</a>
-			<a href="#">1</a>
-			<a href="#" class="active">2</a>
-			<a href="#">3</a>
-			<a href="#">4</a>
-			<a href="#">5</a>
-			<a href="#">6</a>
-			<a href="#">&raquo;</a>
-		</div>
-	</div>
-</div>
-<div class="footer">
-		<h5>© Copyright 2018 Template By Muche - All Rights Reserved</h5>
-</div>
-<script src="js/main.js"></script>
+      <table>
+        <tr>
+          <th>Request ID</th>
+          <th>Title</th>
+          <th>Status</th>
+          <th>Complete Status</th>
+          <th>Date</th>
+        </tr>
+        <tr>
+          <td>
+            <a href="requestdetails_admin.html">#000001</a>
+          </td>
+          <td>
+            <a href="requestdetails_admin.html">Laptop repair</a>
+          </td>
+          <td>
+            <a href="requestdetails_admin.html">Pending</a>
+          </td>
+          <td>
+            <a href="requestdetails_admin.html">Pending</a>
+          </td>
+          <td>
+            <a href="requestdetails_admin.html">18/05/2018</a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <a href="requestdetails_admin.html">#000002</a>
+          </td>
+          <td>
+            <a href="requestdetails_admin.html">Phone repair</a>
+          </td>
+          <td>
+            <a href="requestdetails_admin.html">Approved</a>
+          </td>
+          <td>
+            <a href="requestdetails_admin.html">Pending</a>
+          </td>
+          <td>
+            <a href="requestdetails_admin.html">17/05/2018</a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <a href="requestdetails_admin.html">#000003</a>
+          </td>
+          <td>
+            <a href="requestdetails_admin.html">Laptop repair</a>
+          </td>
+          <td>
+            <a href="requestdetails_admin.html">Approved</a>
+          </td>
+          <td>
+            <a href="requestdetails_admin.html">Pending</a>
+          </td>
+          <td>
+            <a href="requestdetails_admin.html">16/05/2018</a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <a href="requestdetails_admin.html">#000004</a>
+          </td>
+          <td>
+            <a href="requestdetails_admin.html">Laptop repair</a>
+          </td>
+          <td>
+            <a href="requestdetails_admin.html">Approved</a>
+          </td>
+          <td>
+            <a href="requestdetails_admin.html">Pending</a>
+          </td>
+          <td>
+            <a href="requestdetails_admin.html">14/05/2018</a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <a href="requestdetails_admin.html">#000005</a>
+          </td>
+          <td>
+            <a href="requestdetails_admin.html">Car repair</a>
+          </td>
+          <td>
+            <a href="requestdetails_admin.html">Approved</a>
+          </td>
+          <td>
+            <a href="requestdetails_admin.html">Pending</a>
+          </td>
+          <td>
+            <a href="requestdetails_admin.html">14/05/2018</a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <a href="requestdetails_admin.html">#000006</a>
+          </td>
+          <td>
+            <a href="requestdetails_admin.html">Vehicle Maintenance</a>
+          </td>
+          <td>
+            <a href="requestdetails_admin.html">Approved</a>
+          </td>
+          <td>
+            <a href="requestdetails_admin.html">Resolved</a>
+          </td>
+          <td>
+            <a href="requestdetails_admin.html">31/03/2018</a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <a href="requestdetails_admin.html">#000007</a>
+          </td>
+          <td>
+            <a href="requestdetails_admin.html">Laptop repair</a>
+          </td>
+          <td>
+            <a href="requestdetails_admin.html">Approved</a>
+          </td>
+          <td>
+            <a href="requestdetails_admin.html">Resolved</a>
+          </td>
+          <td>
+            <a href="requestdetails_admin.html">22/03/2018</a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <a href="requestdetails_admin.html">#000008</a>
+          </td>
+          <td>
+            <a href="requestdetails_admin.html">phone repair</a>
+          </td>
+          <td>
+            <a href="requestdetails_admin.html">Approved</a>
+          </td>
+          <td>
+            <a href="requestdetails_admin.html">Resolved</a>
+          </td>
+          <td>
+            <a href="requestdetails_admin.html">4/03/2018</a>
+          </td>
+        </tr>
+      </table>
+      <div class="pagination">
+        <a href="#">&laquo;</a>
+        <a href="#">1</a>
+        <a href="#" class="active">2</a>
+        <a href="#">3</a>
+        <a href="#">4</a>
+        <a href="#">5</a>
+        <a href="#">6</a>
+        <a href="#">&raquo;</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <h5>© Copyright 2018 Template By Muche - All Rights Reserved</h5>
+  </div>
+  <script src="js/main.js"></script>
 </body>
+
 </html>
