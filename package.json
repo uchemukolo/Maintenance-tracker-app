@@ -6,7 +6,8 @@
   "scripts": {
     "start": "nodemon --watch server --exec babel-node server/dist/bin/www.js",
     "test": "npm run migrate && nyc --reporter=html --reporter=text mocha --compilers js:babel-core/register server/tests/tests.js",
-    "build": "babel ./server -d ./server/dist --copy-files",
+    "build": "babel ./server -d ./server/dist",
+    "server:dist": "nodemon ./server/dist/",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "coveralls": "nyc --reporter=lcov --reporter=text-lcov npm test",
     "postinstall": "npm run build",

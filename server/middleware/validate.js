@@ -151,7 +151,7 @@ class Validate {
    *
    * @memberof Validate
   */
-  static createRequest(req, res, next) {
+  static createrequest(req, res, next) {
     const {
       title, category, description, urgencyLevel, status, completeStatus
     } = req.body;

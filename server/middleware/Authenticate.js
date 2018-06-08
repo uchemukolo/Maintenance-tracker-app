@@ -20,14 +20,14 @@ const Authenticate = {
   Verify: (req, res, next) => {
     const token = req.body.token || req.query.token || req.headers.token;
     if (!token) {
-      return res.status(401).send({
+      return res.status(401).json({
         message: 'Unauthorised User! Please provide a valid token'
       });
     }
 
     jwt.verify(token, key, (err, decoded) => {
-      if (err) {
-        return res.status(401).send({
+      if (err) { 
+        return res.status(401).json({
           message: 'Token could not be authenticated'
         });
       }
@@ -40,7 +40,7 @@ const Authenticate = {
     if (req.decoded && req.decoded.role === 'Admin') {
       return next();
     }
-    return res.status(401).send({
+    return res.status(401).json({
       message: 'Your not Authorized to access this page!'
     });
   }
