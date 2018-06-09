@@ -119,10 +119,10 @@ body {
     background-image: url("../image/Wooden-background.jpg");
     background-repeat: no-repeat;
     color: #9acd32;
-    height: 1500px;
+    height: 100vh;
     padding: 100px;
     float: left;
-    width: 100%;
+    width: 100vw;
 }
 
 img{
